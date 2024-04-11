@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
      AWS_DEFAULT_REGION: "us-east-1"
-     IMAGE_REPO_NAME: "Assignment3"
+     IMAGE_REPO_NAME: "scullyapp"
      AWS_ACCOUNT_ID: "381491915416"
 
 phases:
