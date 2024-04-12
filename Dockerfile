@@ -1,6 +1,6 @@
 # Import the python module
-# FROM python:3.8-slim
-FROM 381491915416.dkr.ecr.us-east-1.amazonaws.com/scullyapp:5d33eeb
+FROM python:3.8-slim
+#FROM 381491915416.dkr.ecr.us-east-1.amazonaws.com/scullyapp:5d33eeb
 # Set the working directory
 WORKDIR /scullyapp
 # Copy the source python file to my current working directory.
