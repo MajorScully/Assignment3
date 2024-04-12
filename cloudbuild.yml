@@ -1,0 +1,21 @@
+
+steps:
+  # Build the container image using  docker cloud builder
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'northamerica-northeast2-docker.pkg.dev/peaceful-nation-399620/bob-100805862/scullyapp:$COMMIT_SHA', './Assignment 1 Files']
+
+  # Push the image to my artifact registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'northamerica-northeast2-docker.pkg.dev/peaceful-nation-399620/bob-100805862/scullyapp:$COMMIT_SHA']
+
+# Deploy container image to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args: ['run', 'deploy', 'scullyapp', '--image', 'northamerica-northeast2-docker.pkg.dev/peaceful-nation-399620/bob-100805862/scullyapp:$COMMIT_SHA', '--region', 'northamerica-northeast2', '--port', '3000', '--allow-unauthenticated']
+
+options:
+  # Set defaultLogsBucketBehavior to REGIONAL_USER_OWNED_BUCKET
+  defaultLogsBucketBehavior: 'REGIONAL_USER_OWNED_BUCKET'
+
+images:
+- northamerica-northeast2-docker.pkg.dev/peaceful-nation-399620/bob-100805862/scullyapp
