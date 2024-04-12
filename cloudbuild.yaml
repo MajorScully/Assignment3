@@ -11,7 +11,7 @@ steps:
 # Deploy container image to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
-    args: ['run', 'deploy', 'scullyapp', '--image', 'northamerica-northeast2-docker.pkg.dev/peaceful-nation-399620/bob-100805862/scullyapp:$COMMIT_SHA', '--region', 'northamerica-northeast2', '--port', '3000', '--allow-unauthenticated']
+    args: ['run', 'deploy', 'scullyapp', '--image', 'northamerica-northeast2-docker.pkg.dev/peaceful-nation-399620/bob-100805862/scullyapp:$COMMIT_SHA', '--region', 'northamerica-northeast2', '--port', '5000', '--allow-unauthenticated']
 
 options:
   # Set defaultLogsBucketBehavior to REGIONAL_USER_OWNED_BUCKET
